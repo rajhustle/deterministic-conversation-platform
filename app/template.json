@@ -1,0 +1,20 @@
+{
+  "start": {
+    "text": "How can we help you today?",
+    "buttons": [
+      { "label": "Learn about services", "next": "services" },
+      { "label": "Talk to expert", "next": "fallback" }
+    ]
+  },
+  "services": {
+    "text": "We offer fraud protection and consulting.",
+    "buttons": [
+      { "label": "Book appointment", "next": "appointment" },
+      { "label": "End chat", "next": "end" }
+    ]
+  },
+  "appointment": {
+    "text": "An expert will contact you shortly.",
+    "buttons": []
+  }
+}

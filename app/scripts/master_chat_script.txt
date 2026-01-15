@@ -1,0 +1,248 @@
+📄 CHAT MASTER SCRIPT
+
+Domain: Online Fraud Detection & Protection
+Channel: Web / App Chat
+Style: Professional, calm, non-pushy
+Goal: Educate → qualify → escalate to human if needed
+
+BOT 1
+
+Hello 👋
+Thanks for reaching out to Fraud Solutions.
+
+BOT 2
+
+I’m here to help you understand how online fraud protection works and what support options are available.
+
+BOT 3
+
+Before we begin, may I know how you’d like to proceed?
+
+Options:
+A. Learn about online fraud protection
+B. Get help from a support specialist
+C. I’m just browsing / not sure yet
+
+IF USER SELECTS A
+BOT 4
+
+Great choice. I’ll give you a clear overview.
+
+BOT 5
+
+Online fraud protection helps individuals and businesses reduce risks like:
+• Unauthorized transactions
+• Account takeovers
+• Phishing and identity misuse
+
+BOT 6
+
+These threats usually occur through emails, fake websites, or compromised devices.
+
+BOT 7
+
+To make this useful for you, may I ask:
+
+Which best describes you?
+A. Individual user
+B. Business owner / professional
+C. Just learning for awareness
+
+IF USER = A (Individual)
+BOT 8
+
+Thanks. Many individual users face fraud through:
+• Fake payment links
+• OTP or PIN sharing
+• Social engineering calls
+
+BOT 9
+
+Protection focuses on early detection and prevention rather than recovery after loss.
+
+BOT 10
+
+Would you like to understand:
+A. Common fraud scenarios
+B. How protection systems work
+C. What steps you can take today
+
+IF USER = B (Business)
+BOT 11
+
+Understood. Businesses typically face:
+• Payment fraud
+• Fake customer accounts
+• Data misuse
+
+BOT 12
+
+Fraud protection for businesses focuses on monitoring patterns and unusual behavior.
+
+BOT 13
+
+Would you like to explore:
+A. Business fraud risks
+B. Monitoring & alerts
+C. Next steps for support
+
+IF USER = C (Awareness)
+BOT 14
+
+That’s perfectly fine.
+
+BOT 15
+
+Being aware is the first step toward staying safe online.
+
+BOT 16
+
+Would you like:
+A. A short overview
+B. Examples of common scams
+C. Tips to stay safe
+
+EXPLANATION PATH (USED MULTIPLE TIMES)
+BOT 17
+
+Here’s a simple explanation.
+
+BOT 18
+
+Fraud protection systems work by observing activity patterns and identifying unusual behavior.
+
+BOT 19
+
+When something looks suspicious, alerts are raised so action can be taken early.
+
+BOT 20
+
+This reduces losses and prevents repeat incidents.
+
+YES / NO HANDLING
+BOT 21
+
+Does this explanation make sense so far?
+
+Options:
+A. Yes
+B. No / Not really
+
+IF USER = YES
+BOT 22
+
+Great 👍
+Let’s continue.
+
+IF USER = NO
+BOT 23
+
+No problem at all.
+
+BOT 24
+
+Would you like me to:
+A. Explain it differently
+B. Keep it very brief
+C. Connect you to a specialist
+
+PRICE / LOCATION HANDLING (SAFE)
+IF USER ASKS ABOUT PRICE / COST
+BOT 25
+
+That’s a common question.
+
+BOT 26
+
+Pricing depends on individual needs and use cases, so it’s best explained by a specialist.
+
+BOT 27
+
+Would you like me to arrange a callback from our team?
+
+Options:
+A. Yes, please
+B. Not right now
+
+IF USER ASKS ABOUT LOCATION / OFFICE
+BOT 28
+
+I can help with that through a support specialist.
+
+BOT 29
+
+Would you like a callback to discuss details?
+
+FREE TEXT / OFF-PATH QUESTIONS
+BOT 30
+
+I’ll try my best to help.
+
+BOT 31
+
+If your question needs detailed or sensitive information, I may suggest speaking with a specialist.
+
+ESCALATION TO HUMAN
+BOT 32
+
+It sounds like you may need personalised assistance.
+
+BOT 33
+
+I can arrange a callback from our fraud protection team.
+
+BOT 34
+
+May I collect a few details?
+
+BOT 35
+
+Please share your name.
+
+BOT 36
+
+Thanks. Please share a contact number or email where our team can reach you.
+
+BOT 37
+
+Got it. A specialist will reach out to you shortly.
+
+BOT 38
+
+Is there anything else I can help you with right now?
+
+NOT INTERESTED PATH
+IF USER SELECTS “Not interested”
+BOT 39
+
+Understood.
+
+BOT 40
+
+If you ever need information about staying safe online, feel free to return.
+
+BOT 41
+
+Thank you for your time. Stay safe! 👋
+
+LOOP-BACK / RECOVERY
+BOT 42
+
+Just to check — would you like to:
+A. Learn more
+B. Talk to support
+C. End the chat
+
+END STATES
+BOT 43
+
+Thanks for chatting with Fraud Solutions.
+
+BOT 44
+
+Have a safe and secure day ahead.
+OPTIONS:
+1. Learn about our services
+2. See real-world examples
+3. Talk to a human expert
+4. End conversation
