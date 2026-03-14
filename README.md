@@ -74,21 +74,32 @@ This gives you full auditability — you can reconstruct exactly what path every
 
 ## How to Run
 
-**Prerequisites:** Python 3.8+
+**Step 1 — Download the project**
+- Click the green **Code** button on this GitHub page
+- Click **Download ZIP**
+- Unzip the folder on your computer
 
+**Step 2 — Install Python**
+- Go to [python.org](https://www.python.org/downloads/) and download Python 3.8 or higher
+- During installation check the box that says **"Add Python to PATH"**
+
+**Step 3 — Open terminal in the project folder**
+- **Windows:** open the unzipped folder → click the address bar at the top → type `cmd` → press Enter
+- **Mac:** right click the unzipped folder → New Terminal at Folder
+
+**Step 4 — Install dependencies**
 ```bash
 pip install -r requirements.txt
-streamlit run app.py
 ```
 
-Then open `http://localhost:8501` in your browser.
+**Step 5 — Run the app**
+```bash
+streamlit run app/app.py
+```
 
-**Quick start:**
-1. Select **Build** mode
-2. Create a step named `start` — this is where every conversation begins
-3. Add buttons routing to other steps or to `end` / `call`
-4. Click **Run Chatbot** to execute the flow
-5. Session log is printed at conversation end
+**Step 6 — Open in browser**
+- Streamlit will automatically open `http://localhost:8501` in your browser
+- If it doesn't open automatically, copy that URL and paste it into Chrome or Firefox
 
 ---
 
