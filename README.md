@@ -1,100 +1,117 @@
 # Deterministic Conversation Platform
 
-A production-grade, deterministic conversation engine for building guided chat and voice workflows with full session tracking, branching, and outcome analytics.
-
-This project implements the **control layer behind AI agents** — the same layer used by platforms like Retell, call-center bots, and conversational automation systems — where predictable behavior, routing, and auditability are more important than free-form AI text.
+**The control layer behind production Voice AI and Conversational AI systems — built and run locally.**
 
 ---
 
-## 🚀 What this platform does
+## This Is Not a Chatbot
 
-This is **not** a chatbot.  
-It is a **conversation execution engine**.
+Most AI demos are chatbots — the LLM decides what to say next based on whatever the user typed. That works in demos. It fails in production.
 
-It allows you to define and run structured conversation flows such as:
-start → buy → residential → 2 BHK → book callback
+Real Voice AI systems for legal intake, real estate qualification, or customer support cannot afford free-form LLM behavior. Every conversation must follow a defined path. Every branch must be predictable. Every session must be logged and auditable.
 
-
-And it tracks everything about the session:
-- Where the user went
-- How long it took
-- What outcome occurred
-- What data was captured
+This platform is that control layer — the conversation execution engine that sits underneath the LLM, deciding where the conversation goes regardless of what the user says.
 
 ---
 
-## 🔑 Core Features
+## What It Does
 
-- **Deterministic flow engine**
-  - Button-driven branching & sub-branching
-  - No intent detection, no hallucinations
+A two-mode Streamlit application:
 
-- **Session tracking**
-  - Unique session IDs
-  - Full conversation path
-  - Start time, end time, duration
+**Build Mode** — Design conversation flows visually:
+- Define steps with custom text shown to the user
+- Attach up to 3 buttons per step, each routing to a next step
+- Special destinations: `end` (completes conversation) or `call` (escalates to human callback)
+- Flow validation before running — catches broken links and missing start nodes
 
-- **Outcome tracking**
-  - Completed
-  - Callback requested
-  - Dropped off
-
-- **Data capture**
-  - Phone numbers, email, or any user input
-  - Stored against the session
-
-- **Validation**
-  - Prevents broken flows
-  - Detects invalid links between steps
+**Run Mode** — Execute the flow with full session tracking:
+- Unique session ID per conversation
+- Full path logging — every node visited in order
+- Timestamps — start time, end time, duration in seconds
+- Flow versioning — track which version of the flow ran
+- Traffic source tracking — where the user came from
+- Two outcome states: `completed` or `callback_requested`
 
 ---
 
-## 📊 Example Session Log
+## Why This Matters in Production
+
+This is the same architectural pattern used in production Voice AI systems.
+
+When I deployed a Voice AI system for a New York law firm handling live legal intake calls, the core reliability layer was exactly this — a deterministic flow engine that decided:
+
+- Which practice area is this caller trying to reach?
+- Has the required intake information been collected?
+- Does this need a human attorney or can it be handled automatically?
+- If the caller says something unexpected — which fallback node handles it?
+
+The LLM handles natural language understanding. This engine handles where the conversation goes next. Separating these two responsibilities is what makes production AI systems auditable and safe.
+
+Without this layer, you have an LLM making routing decisions — which means hallucinated escalations, missed intake steps, and compliance failures.
+
+---
+
+## Session Log Output
+
+Every completed conversation produces a structured log:
 
 ```json
 {
-  "session_id": "b8b36909-322d-4c1a-af88-70b472c99f45",
-  "path": ["start", "residential", "bhk_2", "yes"],
-  "started_at": "2026-01-07T16:31:10",
-  "ended_at": "2026-01-07T16:31:51",
-  "duration_seconds": 41,
-  "outcome": "callback",
-  "captured_data": {
-    "contact": "9876543210"
-  }
+  "session_id": "a3f2c1d4-...",
+  "flow_version": "v1",
+  "source": "website",
+  "path": ["start", "buy", "residential", "2bhk", "end"],
+  "started_at": "2025-03-14T10:23:11",
+  "ended_at": "2025-03-14T10:24:45",
+  "duration_seconds": 94,
+  "outcome": "completed"
 }
+```
 
+This gives you full auditability — you can reconstruct exactly what path every user took, how long it took, and what the outcome was.
 
+---
 
-🖥️ How to run locally
-1. Install dependencies
+## How to Run
+
+**Prerequisites:** Python 3.8+
+
+```bash
 pip install -r requirements.txt
-
-2. Start the app
 streamlit run app.py
+```
 
-3. Open in browser
-http://localhost:8501
+Then open `http://localhost:8501` in your browser.
 
+**Quick start:**
+1. Select **Build** mode
+2. Create a step named `start` — this is where every conversation begins
+3. Add buttons routing to other steps or to `end` / `call`
+4. Click **Run Chatbot** to execute the flow
+5. Session log is printed at conversation end
 
-🧩 Use cases
-Voice bots (Retell-style systems)
+---
 
-Lead qualification
+## Tech Stack
 
-Appointment booking
+- Python
+- Streamlit
+- UUID for session tracking
+- Pure deterministic logic — no LLM, no external APIs
 
-Sales routing
+---
 
-Support triage
+## Files
 
-Compliance-driven chat
+| File | Description |
+|------|-------------|
+| `app/app.py` | Full application — build mode, run mode, session logging |
+| `requirements.txt` | Dependencies |
+| `README.md` | This file |
 
-AI agent control layers
+---
 
-🧑‍💻 Author
-Built by Kaushal raj
-Applied Conversational & Generative AI Engineer
+## Author
 
-
-
+**Kaushal Raj** — Production Voice & Agentic AI Engineer
+[GitHub](https://github.com/rajhustle) · [LinkedIn](https://linkedin.com/in/kaushal-raj-a83603380)
